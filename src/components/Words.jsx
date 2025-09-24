@@ -6,6 +6,7 @@ export default function Words(props)
 {
     //const [counter, setCounter] = useState(0); 
     const [activeIndex, setActiveIndex] = useState(null);
+    const [valid, setValid]= useState(false);
     const Option = useRef([]);
     const anim = useRef();
 
@@ -24,6 +25,7 @@ export default function Words(props)
     {
         let val = isValid(index);
         props.changeActive(val);
+        setValid(val);
         //console.log(counter);
         //setCounter(counter => counter + 1);
         setActiveIndex(prevIndex => (prevIndex === index ? null : index));
@@ -38,7 +40,14 @@ export default function Words(props)
         );
         if (activeIndex !== null) {
       // aktywny element
-      gsap.to(Option.current[activeIndex], { backgroundColor: "#6D6A75", color: "white", duration: 0.5 });
+        if(valid)
+        {
+            gsap.to(Option.current[activeIndex], { backgroundColor: "#4F772D", color: "white", duration: 0.5 });
+        }
+        else
+        {
+            gsap.to(Option.current[activeIndex], { backgroundColor: "#6D6A75", color: "white", duration: 0.5 });
+        }
     }
     }, [activeIndex]);
 

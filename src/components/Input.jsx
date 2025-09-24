@@ -43,7 +43,6 @@ export default function Input(props)
             gsap.to( div.current, {backgroundColor: "#4F772D", duration: 1, ease: "power2"});
             gsap.fromTo( correctIcon.current, {color: "white", y: '100%'}, {y: 0, duration: 1, ease: "power2.inOut"})
         }
-        console.log(props.doneNum);
     }, {dependencies: [correct]})
 
 

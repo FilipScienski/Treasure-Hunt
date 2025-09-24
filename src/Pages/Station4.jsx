@@ -34,7 +34,6 @@ export default function Station4(props) {
 
   useEffect(() => {
         setActive(isActive(done));
-        console.log(done);
   }, [done])
 
   
