@@ -9,6 +9,7 @@ import Station2 from './Pages/Station2.jsx';
 import Station3 from './Pages/Station3.jsx';
 import Station4 from './Pages/Station4.jsx';
 import Station5 from './Pages/Station5.jsx';
+import Station6 from './Pages/Station6.jsx';
 import Layout from './components/Layout.jsx';
 
 
@@ -32,7 +33,7 @@ import Layout from './components/Layout.jsx';
 //TODO: error page
 
 
-localStorage.setItem("noPages", "5");
+localStorage.setItem("noPages", "6");
 
 
 const router = createBrowserRouter([
@@ -45,7 +46,9 @@ const router = createBrowserRouter([
       { path: "2", element: <Station2 no={2}/> },
       { path: "3", element: <Station3 no={3}/> },
       { path: "4", element: <Station4 no={4}/> },
-      { path: "5", element: <Station5 no={5}/> }
+      { path: "5", element: <Station5 no={5}/> },
+      { path: "6", element: <Station6 no={6}/> }
+
     ],
   },
 ] //, { basename: "/ang"} // to basename było problemem
