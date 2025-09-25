@@ -40,14 +40,16 @@ export default function Words(props)
         );
         if (activeIndex !== null) {
       // aktywny element
-        if(valid)
+        /*if(valid)
         {
             gsap.to(Option.current[activeIndex], { backgroundColor: "#4F772D", color: "white", duration: 0.5 });
         }
         else
         {
             gsap.to(Option.current[activeIndex], { backgroundColor: "#6D6A75", color: "white", duration: 0.5 });
-        }
+        }*/
+
+            gsap.to(Option.current[activeIndex], { backgroundColor: "#6D6A75", color: "white", duration: 0.5 });
     }
     }, [activeIndex]);
 

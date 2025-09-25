@@ -12,6 +12,7 @@ export default function Input(props)
 {
 
     const [correct, setCorrect] = useState(false);
+    const [empty, setEmpty] = useState(true);
 
     const div = useRef();
     const correctIcon = useRef();
@@ -33,41 +34,42 @@ export default function Input(props)
    function change(e){
     const value = e.target.value;
     const Valid = isCorrect(value);
+    console.log(value.length <= 0);
+    setEmpty(value.length <= 0);
+    
     setCorrect(isCorrect(value));
     props.setDone(props.id, Valid);
     }
 
     useGSAP(()=>{
 
-        if(!correct)
+        if(empty)
         {
             gsap.to( div.current, {backgroundColor: "#C1121F", duration: 1, ease: "power2"});
-            gsap.fromTo( wrongIcon.current, {color: "white", autoAlpha: 0, y: '100%'}, {y: 0, autoAlpha: 1, duration: 1, ease: "power2.inOut"});
+            //gsap.fromTo( wrongIcon.current, {color: "white", autoAlpha: 0, y: '100%'}, {y: 0, autoAlpha: 1, duration: 1, ease: "power2.inOut"});
 
         }
         else
         {
-            
-            gsap.to( div.current, {backgroundColor: "#4F772D", duration: 1, ease: "power2"});
-            gsap.fromTo( correctIcon.current, {color: "white", y: '100%'}, {y: 0, duration: 1, ease: "power2.inOut"})
+            gsap.to( div.current, {backgroundColor: "#ADADAD", duration: 1, ease: "power2"});
+            //gsap.fromTo( correctIcon.current, {color: "white", y: '100%'}, {y: 0, duration: 1, ease: "power2.inOut"})
         }
-    }, {dependencies: [correct]})
+    }, {dependencies: [empty]})
 
 
-
+    //{correct && <IconCorrect className="object-contain" ref={correctIcon}/>}
+    //{correct == false && <IconWrong className="object-contain" ref={wrongIcon} />}
     return(
         <>
             {props.small ? <div className="flex overflow-hidden">
                 <input type="text" className="bg-[#D9D9D9] rounded-l-md pl-2 focus:outline-none w-[50%]" onChange={(e)=>{change(e);}}/>
                 <div className="w-[32px] h-[32px] bg-[#ADADAD] rounded-r-md items-center" ref={div}>
-                    {correct && <IconCorrect className="object-contain" ref={correctIcon}/>}
-                    {correct == false && <IconWrong className="object-contain" ref={wrongIcon} />}
                 </div>
             </div> : <div className="flex overflow-hidden">
                 <input type="text" className="bg-[#D9D9D9] rounded-l-md pl-2 focus:outline-none w-28" onChange={(e)=>{change(e);}}/>
                 <div className="w-[32px] h-[32px] bg-[#ADADAD] rounded-r-md items-center" ref={div}>
-                    {correct && <IconCorrect className="object-contain" ref={correctIcon}/>}
-                    {correct == false && <IconWrong className="object-contain" ref={wrongIcon} />}
+                    
+                    
                 </div>
             </div>}
         </>

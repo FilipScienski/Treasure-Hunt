@@ -1,13 +1,19 @@
 export default function Description(props)
 {
+
+    
     return(
         <>
-            {props.title ? props.small ? 
-            <div className="w-[90%] mx-auto mt-10">
+            {props.title ? props.small ? props.reduceMargin ?
+            <div className="w-[90%] mx-auto mt-2">
                 <h2 className="font-['Poppins'] font-black text-3xl uppercase">Task</h2>
                 <p className="font-['Poppins'] font-bold text-sm text-pretty">{props.text}</p>
-            </div> :
-            <div className="w-[90%] mx-auto mt-15">
+            </div> 
+            :<div className="w-[90%] mx-auto mt-10">
+                <h2 className="font-['Poppins'] font-black text-3xl uppercase">Task</h2>
+                <p className="font-['Poppins'] font-bold text-sm text-pretty">{props.text}</p>
+            </div>
+            :<div className="w-[90%] mx-auto mt-15">
                 <h2 className="font-['Poppins'] font-black text-3xl uppercase">Task</h2>
                 <p className="font-['Poppins'] font-bold text-xl text-pretty">{props.text}</p>
             </div>
