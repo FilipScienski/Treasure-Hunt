@@ -40,7 +40,7 @@ export default function DoneButton(props)
 
     return(
         <>
-            <p className='font-["Poppins"] text-lg font-bold uppercase bg-black text-white py-2 px-6 w-fit h-fit rounded-xl mt-5' ref={button} onClick={() => setCounter(counter => counter + 1)}  >{props.text}</p>
+            <p className='font-["Poppins"] text-lg font-bold uppercase bg-black text-white py-2 px-6 w-fit h-fit rounded-xl mt-5' ref={button} onClick={() => (setCounter(counter => counter + 1))}  >{props.text}</p>
         </>
     );
 }

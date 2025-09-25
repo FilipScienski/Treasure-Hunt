@@ -14,9 +14,31 @@ import Words from '../components/Words';
 
 
 
-export default function Station5(props) {
+export default function Station_odd_words(props) {
   const [status, setStatus] = useState(false);
   const [Active, setActive] = useState(false);
+  const [done, setDone] = useState({});
+
+  const setDoneValue = (key, isCorrect) => {
+      setDone(prev => ({ ...prev, [key]: isCorrect }));
+    };
+  
+    function isActive()
+    {
+      const value = Object.values(done);
+      return value.length > 0 && value.every(Boolean);
+    }
+  
+    useEffect(()=>{
+      console.log(Active);
+      let tasks = props.getTask("tasksObj");
+      tasks.task2 = Active;
+      props.setTask("tasksObj", tasks);
+    }, [Active])
+
+    useEffect(() => {
+          setActive(isActive(done));
+    }, [done])
 
   function changeStatus(val) {
     setStatus(val);
@@ -33,17 +55,15 @@ export default function Station5(props) {
                   <Title text={"Station" + props.no} />
       
                   <Description text={"Find wrong word "} />
-
-                  <Words words={["Apple", "Tomato", "Oscar"]} answer={"Oscar"} changeActive={changeActive} />
-      
-                  {Active && <DoneButton text={"Zrobione !"} changeStatus={changeStatus} />}
+                  <Words words={["English", "French", "Deutsch", "Vietnamese", "Finnish"]} answer={"Deutsch"} changeActive={changeActive} />
+                  <DoneButton text={"Zrobione !"} changeStatus={changeStatus} />
                   
                   <div className='h-fit w-[80dvw] pb-10 p-5 rounded-t-lg mx-auto'></div>
       
               </div>
               
       
-              <Popup target={props.no + 1} status={status} desc={"Now go to the finish."}/>
+              <Popup target={props.no + 1} status={status} setStatus={setStatus} desc={"Go to the ground floor.Behind the big, swinging door there are 2 plants. Look behind them for the next clue."}/>
     </div>
   );
 }

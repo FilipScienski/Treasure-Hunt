@@ -8,7 +8,7 @@ import IconCorrect from "./IconCorrect";
 import IconWrong from "./IconWrong";
 
 
-export default function Input(props)
+export default function PalindromsInput(props)
 {
 
     const [correct, setCorrect] = useState(false);
@@ -26,7 +26,6 @@ export default function Input(props)
     } else if (typeof props.answer === "string") {
         return text.toLowerCase() === props.answer.toLowerCase();
     }
-
 }
 
 
@@ -57,19 +56,13 @@ export default function Input(props)
 
     return(
         <>
-            {props.small ? <div className="flex overflow-hidden">
-                <input type="text" className="bg-[#D9D9D9] rounded-l-md pl-2 focus:outline-none w-[50%]" onChange={(e)=>{change(e);}}/>
+            <div className="flex">
+                <input type="text" className="bg-[#D9D9D9] rounded-l-md pl-2 focus:outline-none w-20" onChange={(e)=>{change(e);}}/>
                 <div className="w-[32px] h-[32px] bg-[#ADADAD] rounded-r-md items-center" ref={div}>
                     {correct && <IconCorrect className="object-contain" ref={correctIcon}/>}
                     {correct == false && <IconWrong className="object-contain" ref={wrongIcon} />}
                 </div>
-            </div> : <div className="flex overflow-hidden">
-                <input type="text" className="bg-[#D9D9D9] rounded-l-md pl-2 focus:outline-none w-28" onChange={(e)=>{change(e);}}/>
-                <div className="w-[32px] h-[32px] bg-[#ADADAD] rounded-r-md items-center" ref={div}>
-                    {correct && <IconCorrect className="object-contain" ref={correctIcon}/>}
-                    {correct == false && <IconWrong className="object-contain" ref={wrongIcon} />}
-                </div>
-            </div>}
+            </div>
         </>
     );
 }

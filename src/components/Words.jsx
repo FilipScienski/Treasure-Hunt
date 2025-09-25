@@ -78,7 +78,7 @@ export default function Words(props)
 
     return(
         <>
-            <div className="flex gap-2 w-[80%] items-center justify-between">
+            <div className="flex flex-wrap gap-2 w-[80%] items-center justify-between">
                 {props.words.map((item, index) => (
                     <p className="bg-gray-400 p-2 text-xl rounded-sm" key={index} ref={addToRefs} onClick={()=>{handleClick(index)}}>{item}</p>
                 ))}
