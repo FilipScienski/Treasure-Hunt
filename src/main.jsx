@@ -82,7 +82,7 @@ const router = createBrowserRouter([
 
     ],
   },
-], //{ basename: "/ang"} // to basename było problemem
+], { basename: "/ang"} // to basename było problemem
 );
 
 
