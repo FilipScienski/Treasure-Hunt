@@ -1,10 +1,5 @@
 import { useState, useEffect } from 'react'
 
-
-
-
-import Bar from "../components/Bar";
-
 import Title from "../components/Title";
 import Description from "../components/Description";
 import DoneButton from "../components/DoneButton";

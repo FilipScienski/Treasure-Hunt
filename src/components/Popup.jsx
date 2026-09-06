@@ -13,7 +13,7 @@ export default function Popup(props)
 
   useEffect(() => {
     anim.current = gsap.fromTo( popup.current, { y: 200, autoAlpha: 0 }, { y: -30, autoAlpha: 1 , duration: 0.5, ease: "power2.inOut", paused: true } );
-  }, []); //winowajcą był brak tej tablicy czyli animacja się tworzyła przy każdym renderze
+  }, []);
 
   useEffect(() => {
     if (props.status) {
@@ -22,8 +22,6 @@ export default function Popup(props)
       anim.current.reverse();
     }
   }, [props.status]);
-
-  //let war = (props.target -1 != localStorage.getItem("noPages"));
 
     return(
         <>

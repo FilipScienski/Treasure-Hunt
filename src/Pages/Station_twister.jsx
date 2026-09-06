@@ -58,7 +58,7 @@ export default function Station_twister(props) {
               </div>
               
       
-              <Popup target={props.no + 1} status={status}  desc={"THE END"} summary={true}/>
+              <Popup target={'summary'} status={status}  desc={"THE END"} summary={true}/>
     </div>
   );
 }

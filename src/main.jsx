@@ -77,7 +77,7 @@ const router = createBrowserRouter([
       {path: '10', element:<Station_idiom no={10}   setTask={localStorage.setObject.bind(localStorage)}  getTask={localStorage.getObject.bind(localStorage)}/>},
       {path: '11', element:<Station_quotes no={11}   setTask={localStorage.setObject.bind(localStorage)}  getTask={localStorage.getObject.bind(localStorage)}/>},
       {path: '12', element:<Station_twister no={12}   setTask={localStorage.setObject.bind(localStorage)}  getTask={localStorage.getObject.bind(localStorage)}/>},
-      {path: '13', element:<Summary_page no={13}   setTask={localStorage.setObject.bind(localStorage)}  getTask={localStorage.getObject.bind(localStorage)}/>}
+      {path: 'summary', element:<Summary_page no={13}   setTask={localStorage.setObject.bind(localStorage)}  getTask={localStorage.getObject.bind(localStorage)}/>}
 
 
     ],
