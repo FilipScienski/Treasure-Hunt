@@ -29,7 +29,7 @@ export default function NextButton(props) {
 
     function changePage()
     {
-        goTo(`/${props.target}`);
+        goTo(`/`);
     }
 
 

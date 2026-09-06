@@ -18,6 +18,7 @@ import Station_quotes from './Pages/Station_quotes.jsx';
 import Station_twister from './Pages/Station_twister.jsx';
 import Summary_page from './Pages/Summary_page.jsx';
 import Layout from './components/Layout.jsx';
+import MainPage from './Pages/MainPage.jsx';
 
 
 
@@ -62,9 +63,9 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <Station_Palindrom />,
+    errorElement: <MainPage />,
     children: [
-      { index: true, element: <Station_Palindrom no={1} setTask={localStorage.setObject.bind(localStorage)}  getTask={localStorage.getObject.bind(localStorage)}/> },
+      { index: true, element: <MainPage /> },
       { path: "1", element: <Station_Palindrom no={1}  setTask={localStorage.setObject.bind(localStorage)}  getTask={localStorage.getObject.bind(localStorage)}/> },
       { path: "2", element: <Station_odd_words no={2}  setTask={localStorage.setObject.bind(localStorage)}  getTask={localStorage.getObject.bind(localStorage)}/> },
       { path: "3", element: <Station3 no={3}  setTask={localStorage.setObject.bind(localStorage)}  getTask={localStorage.getObject.bind(localStorage)}/> },

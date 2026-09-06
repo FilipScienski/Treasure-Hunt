@@ -25,7 +25,7 @@ export default function Popup(props)
 
     return(
         <>
-            <div className="bg-black/70 h-100 w-[80dvw] p-4 mb-10 rounded-t-lg mx-auto" ref={popup}>
+            <div className="bg-black/70 h-100 w-[90dvw] p-4 mb-10 rounded-t-lg mx-auto" ref={popup}>
                 <div className="w-[90%]">
                     <h3 className="uppercase font-['Poppins'] font-bold text-2xl text-white">Przejdź dalej</h3>
                     <h4 className="uppercase font-['Poppins'] font-bold text-md w-fit min-h-25 max-h-25  overflow-y-auto  overflow-clip text-white/70">{props.desc}</h4>
