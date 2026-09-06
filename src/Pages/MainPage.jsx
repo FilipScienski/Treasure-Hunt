@@ -24,7 +24,7 @@ export default function MainPage()
     }, [])
 
     useGSAP(()=>{
-        gsap.fromTo(scannerRef.current, {yPercent: 100}, {yPercent: 0, duration: .2 , ease: "power2.inOut", delay: .6})
+        gsap.fromTo(scannerRef.current, {yPercent: -100}, {yPercent: 0, duration: .8 , ease: "power2.inOut", delay: .6})
     });
 
     const scannerClick = () => {
@@ -32,7 +32,7 @@ export default function MainPage()
         
         if(scannerOpen)
         {
-            gsap.to(scannerRef.current, {yPercent: 10});
+            gsap.to(scannerRef.current, {yPercent: 0});
             setSO(false);
         }
         else
@@ -44,16 +44,16 @@ export default function MainPage()
 
     return(
         <>
-        <div className="h-[100dvh] overflow-hidden relative">
+        <div className="max-h-screen overflow-hidden relative">
         <div className="max-h-screen flex flex-col items-center justify-between py-24">
             <h2 className="font-['poppins'] font-medium text-2xl">Treasure Hunt</h2>
             <div className="flex flex-col gap-2 w-fit">
             {stations?.map((v, i)=>{return(<StationIcon data={v} idx={i} key={i} />)})}
             </div>
         </div>
-        <div className="absolute bottom z-10 bg-blue-400 w-[90dvw] p-4 h-fit rounded-t-lg left-1/2 -translate-x-1/2" ref={scannerRef} onClick={scannerClick}>
-            <h2 className="font-['poppins'] font-medium text-xl mb-4">Zeskanuj kod stacji</h2>
-            <div className="bg-black rounded-md overflow-hidden mb-8">
+        <div className="absolute top-0 z-10 flex flex-col-reverse bg-blue-400 w-[90dvw] p-4 h-fit rounded-b-lg left-1/2 -translate-x-1/2" ref={scannerRef} onClick={scannerClick}>
+            <h2 className="font-['poppins'] font-medium text-xl">Zeskanuj kod stacji</h2>
+            <div className="bg-black/30 border-2 border-black/50 rounded-md overflow-hidden mb-2">
             <BarcodeScanner width={500} height={500} onUpdate={(err, data)=>{
                 if(data){console.log(data)}
                 else console.log("Nie znaleziono kodu");
@@ -71,7 +71,7 @@ function StationIcon({data, idx})
 {
     return(
         <div className={`flex items-center gap-4 text-xl w-3xs justify-between`} >
-            <div className={`flex items-center gap-2 p-2 w-10 h-10 rounded-md border-2 border-black/30 ${data == true ? "bg-green-500 text-white" : "bg-gray-100 text-black"}`}>
+            <div className={`flex items-center gap-2 p-2 w-8 h-8 rounded-md border-2 border-black/30 ${data == true ? "bg-green-500 text-white" : "bg-gray-100 text-black"}`}>
 
             </div>
             <p>Stacja {idx + 1}</p>
