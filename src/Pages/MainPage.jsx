@@ -9,6 +9,7 @@ export default function MainPage()
 {
     const [stations, setStations] = useState();
     const scannerRef = useRef();
+    const [scannerOpen, setSO] = useState(false);
 
     useEffect(()=>{
         const data = localStorage.getItem('tasksObj');
@@ -23,25 +24,42 @@ export default function MainPage()
     }, [])
 
     useGSAP(()=>{
-        gsap.fromTo(scannerRef.current, {yPercent: 0}, {yPercent: -10, ease: "power2.inOut", delay: .6})
+        gsap.fromTo(scannerRef.current, {yPercent: 100}, {yPercent: 0, duration: .2 , ease: "power2.inOut", delay: .6})
     });
 
+    const scannerClick = () => {
+        
+        
+        if(scannerOpen)
+        {
+            gsap.to(scannerRef.current, {yPercent: 10});
+            setSO(false);
+        }
+        else
+        {
+            gsap.to(scannerRef.current, {yPercent: -60});
+            setSO(true);
+        }
+    }
 
     return(
         <>
-        <div className="h-[100dvh] overflow-hidden">
-        <div className="flex flex-col items-center justify-between py-24">
+        <div className="h-[100dvh] overflow-hidden relative">
+        <div className="max-h-screen flex flex-col items-center justify-between py-24">
             <h2 className="font-['poppins'] font-medium text-2xl">Treasure Hunt</h2>
             <div className="flex flex-col gap-2 w-fit">
-            {stations?.map((v, i)=>{return(<StationIcon data={v} idx={i} />)})}
+            {stations?.map((v, i)=>{return(<StationIcon data={v} idx={i} key={i} />)})}
             </div>
         </div>
-        <div className="absolute bottom z-10 bg-blue-400 w-[90dvw] p-4 h-screen rounded-t-lg left-1/2 -translate-x-1/2 shadow-xl shadow-blue-400" ref={scannerRef}>
-            <h2>Zeskanuj kod stacji</h2>
+        <div className="absolute bottom z-10 bg-blue-400 w-[90dvw] p-4 h-fit rounded-t-lg left-1/2 -translate-x-1/2" ref={scannerRef} onClick={scannerClick}>
+            <h2 className="font-['poppins'] font-medium text-xl mb-4">Zeskanuj kod stacji</h2>
+            <div className="bg-black rounded-md overflow-hidden mb-8">
             <BarcodeScanner width={500} height={500} onUpdate={(err, data)=>{
                 if(data){console.log(data)}
                 else console.log("Nie znaleziono kodu");
             }} />
+            </div>
+
         </div>
         </div>
         </>
