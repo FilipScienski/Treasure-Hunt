@@ -44,11 +44,10 @@ export default function MainPage()
 
     return(
         <>
-        <div className="max-h-screen overflow-hidden relative">
-        <div className="max-h-screen flex flex-col items-center justify-between py-24">
-            <h2 className="font-['poppins'] font-medium text-2xl">Treasure Hunt</h2>
-            <div className="flex flex-col gap-2 w-fit">
-            {stations?.map((v, i)=>{return(<StationIcon data={v} idx={i} key={i} />)})}
+        <div className="h-screen overflow-hidden relative flex items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col gap-2">
+            {stations?.map((v,i)=>{return(<StationIcon data={v} idx={i} key={i} />)})}
             </div>
         </div>
         <div className="absolute top-0 z-10 flex flex-col-reverse bg-blue-400 w-[90dvw] p-4 h-fit rounded-b-lg left-1/2 -translate-x-1/2" ref={scannerRef} onClick={scannerClick}>
