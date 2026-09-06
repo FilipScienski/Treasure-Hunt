@@ -26,50 +26,20 @@ export default function Words(props)
         let val = isValid(index);
         props.changeActive(val);
         setValid(val);
-        //console.log(counter);
-        //setCounter(counter => counter + 1);
         setActiveIndex(prevIndex => (prevIndex === index ? null : index));
     }
 
     ///
     useEffect(() => {
-        //reset animacji
         Option.current.forEach(el => {
             gsap.to(el, { backgroundColor: "#ccc", color: "black", duration: 0.3 });
         }
         );
         if (activeIndex !== null) {
-      // aktywny element
-        /*if(valid)
-        {
-            gsap.to(Option.current[activeIndex], { backgroundColor: "#4F772D", color: "white", duration: 0.5 });
-        }
-        else
-        {
-            gsap.to(Option.current[activeIndex], { backgroundColor: "#6D6A75", color: "white", duration: 0.5 });
-        }*/
 
             gsap.to(Option.current[activeIndex], { backgroundColor: "#6D6A75", color: "white", duration: 0.5 });
     }
     }, [activeIndex]);
-
-
-    /*
-    useEffect(() => {
-            if(counter > 0 )
-            {
-                if(counter % 2 == 1)
-                {
-                    anim.current.play();
-                    console.log(`counter: ${counter}`);
-                }
-                else
-                {
-                    anim.current.reverse();
-                }
-                
-            } 
-        }, [counter]);  */
 
     const addToRefs = (el) => {
         if (el && !Option.current.includes(el)) {

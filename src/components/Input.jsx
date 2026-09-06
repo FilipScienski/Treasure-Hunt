@@ -46,13 +46,10 @@ export default function Input(props)
         if(empty)
         {
             gsap.to( div.current, {backgroundColor: "#C1121F", duration: 1, ease: "power2"});
-            //gsap.fromTo( wrongIcon.current, {color: "white", autoAlpha: 0, y: '100%'}, {y: 0, autoAlpha: 1, duration: 1, ease: "power2.inOut"});
-
         }
         else
         {
             gsap.to( div.current, {backgroundColor: "#ADADAD", duration: 1, ease: "power2"});
-            //gsap.fromTo( correctIcon.current, {color: "white", y: '100%'}, {y: 0, duration: 1, ease: "power2.inOut"})
         }
     }, {dependencies: [empty]})
 
@@ -68,8 +65,6 @@ export default function Input(props)
             </div> : <div className="flex overflow-hidden">
                 <input type="text" className="bg-[#D9D9D9] rounded-l-md pl-2 focus:outline-none w-28" onChange={(e)=>{change(e);}}/>
                 <div className="w-[32px] h-[32px] bg-[#ADADAD] rounded-r-md items-center" ref={div}>
-                    
-                    
                 </div>
             </div>}
         </>
