@@ -69,7 +69,7 @@ export default function MainPage()
 function StationIcon({data, idx})
 {
     return(
-        <div className={`flex items-center gap-4 text-xl w-3xs justify-between`} >
+        <div className={`flex items-center gap-4 text-xl w-3xs justify-between font-['poppins']`} >
             <div className={`flex items-center gap-2 p-2 w-8 h-8 rounded-md border-2 border-black/30 ${data == true ? "bg-green-500 text-white" : "bg-gray-100 text-black"}`}>
 
             </div>
