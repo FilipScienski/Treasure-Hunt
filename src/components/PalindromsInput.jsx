@@ -20,11 +20,11 @@ export default function PalindromsInput(props)
     function isCorrect(text) {
     if (Array.isArray(props.answer)) {
         for (let a of props.answer) {
-            if (text.toLowerCase() === a.toLowerCase()) return true;
+            if ((text.replace(/\s/g,'')).toLowerCase() === a.toLowerCase()) return true;
         }
         return false;
     } else if (typeof props.answer === "string") {
-        return text.toLowerCase() === props.answer.toLowerCase();
+        return (text.replace(/\s/g,'')).toLowerCase() === props.answer.toLowerCase();
     }
 }
 
