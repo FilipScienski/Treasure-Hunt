@@ -45,7 +45,7 @@ export default function MainPage()
     return(
         <>
         <div className="h-screen overflow-hidden relative flex items-center justify-center">
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center absolute bottom-4">
             <div className="flex flex-col gap-2">
             {stations?.map((v,i)=>{return(<StationIcon data={v} idx={i} key={i} />)})}
             </div>
